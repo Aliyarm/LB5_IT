@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 
 namespace LB5_IT
 {
@@ -17,34 +16,59 @@ namespace LB5_IT
                 k = Convert.ToInt32(Console.ReadLine());
             }
             Console.WriteLine("Введите значение, на которое будет изменяться член последовательности.");
-            decimal p = Convert.ToDecimal(Console.ReadLine());
+            double p = Convert.ToDouble(Console.ReadLine());
 
-            decimal[] array = new decimal[n];
+            double[] array = new double[n];
             Random rand = new();
             for (int i = 0; i < array.Length; i++)
             {
                 array[i] = rand.Next(-100, 100);
             }
-
-            List<decimal> newArray = new();
-            newArray.AddRange(array);
-            newArray.Sort();
+ 
+            double temp;
+            for (int i = 0; i < array.Length - 1; i++)
+            {
+                for (int j = i + 1; j < array.Length; j++)
+                {
+                    if (array[i] > array[j])
+                    {
+                        temp = array[i];
+                        array[i] = array[j];
+                        array[j] = temp;
+                    }
+                }
+            }
 
             Console.WriteLine("Изначальная последовательность:");
-            foreach (int i in newArray)
+            foreach (int i in array)
             {
                 Console.Write(i + " ");
             }
             Console.WriteLine();
 
-            Console.WriteLine("Изменённая последовательность:");
-            newArray.Insert(k - 1, p);
-            newArray.RemoveAt(k);
-            newArray.Sort();
-            foreach (int i in newArray)
+            array[k - 1] = p;
+            double x;
+            int j;
+            for (int i = 1; i < array.Length; i++)
+            {
+                x = array[i];
+                j = i;
+                while (j > 0 && array[j - 1] > x)
+                {
+                    temp = array[i];
+                    array[i] = array[j];
+                    array[j] = temp;
+                    j -= 1;
+                }
+                array[j] = x;
+            }
+
+
+            foreach (double i in array)
             {
                 Console.Write(i + " ");
             }
+            Console.WriteLine();
         }
     }
 }
