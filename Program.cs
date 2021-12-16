@@ -7,7 +7,7 @@ namespace LB5_IT
         static void Main(string[] args)
         {
             // ввод последовательности
-            Console.WriteLine("Введите длину последовтаельности, n.");
+            Console.WriteLine("Введите длину последовательности, n.");
             int n = Convert.ToInt32(Console.ReadLine());
             Console.WriteLine("Введите номер изменяемого члена последовательности, k.");
             int k = Convert.ToInt32(Console.ReadLine());
