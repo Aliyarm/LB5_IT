@@ -53,6 +53,7 @@ namespace LB5_IT
                 array[i] = min;
                 array[minId] = temp;
             }
+            Console.WriteLine("Упорядоченная последовательность с элементом p:");
             foreach (double i in array)
             {
                 Console.Write(i + " ");
